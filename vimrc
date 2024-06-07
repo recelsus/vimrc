@@ -83,9 +83,9 @@ autocmd VimEnter,ColorScheme * set statusline=%!ReplaceColours()
 " @@ SyntaxHighlight
 " =====================================================================================================================
 
+syntax on
 if g:exSyntaxEnable
 
-  syntax on
   let g:syntaxDir = expand('$HOME/.vim/after/syntax')
 
   " wgetできるsyntaxファイルのURLを指定
@@ -281,7 +281,9 @@ endif
 " @@ LSP
 " =====================================================================================================================
 
-if g:pluginEnable
+let g:plugin_path = expand('~/.vim/plugins')
+
+if g:pluginEnable && isdirectory(g:plugin_path . '/vim-lsp') && isdirectory(g:plugin_path . '/vim-lsp-settings')
   set runtimepath+=~/.vim/plugins/vim-lsp
   set runtimepath+=~/.vim/plugins/vim-lsp-settings
 
